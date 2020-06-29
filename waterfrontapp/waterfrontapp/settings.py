@@ -37,7 +37,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = get_secret("ALLOWED_HOSTS")
 
 
 # Application definition
@@ -133,7 +133,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+STATIC_ROOT = '/home/deploy/waterfront-analytics-api/staticfiles/'
 STATIC_URL = '/static/'
 
 
@@ -148,10 +148,7 @@ AUTH_USER_MODEL = 'waterfrontapi.UserProfile'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = [
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8080",
-]
+CORS_ORIGIN_WHITELIST = get_secret("CORS_ORIGIN_WHITELIST")
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
