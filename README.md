@@ -42,3 +42,6 @@ Resource links
 - https://medium.com/@biswashirok/deploying-django-python-3-6-to-digital-ocean-with-uwsgi-nginx-ubuntu-18-04-3f8c2731ade1
 - https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04#setting-up-the-uwsgi-application-server
 - https://stackoverflow.com/questions/46644774/deploying-django-to-a-server
+
+Letsencrypt - SSL
+- https://medium.com/@kwekuq/secure-django-nginx-with-lets-encrypt-on-ubuntu-18-04-ba096abdc892
