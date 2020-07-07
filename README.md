@@ -45,3 +45,15 @@ Resource links
 
 Letsencrypt - SSL
 - https://medium.com/@kwekuq/secure-django-nginx-with-lets-encrypt-on-ubuntu-18-04-ba096abdc892
+
+
+# Making updates
+
+1. ssh into server <username: deploy>
+2. cd into work directory
+3. git pull origin master
+4. source <path to env>/activate
+5. pip install -r requirements.txt # if new dependencies
+6. python manage.py makemigrations # if model changes
+7. python manage.py migrate # if model changes
+8. sudo supervisorctl restart waterfrontapp
