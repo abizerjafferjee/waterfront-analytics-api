@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -82,3 +83,19 @@ class ContactForm(models.Model):
     def __str__(self):
         """Return model as a string."""
         return self.email
+
+class Post(models.Model):
+    """
+    Blog post model.
+    """
+
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
+    description = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
+    tags = TaggableManager()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

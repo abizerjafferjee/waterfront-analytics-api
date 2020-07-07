@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'taggit',
+    'taggit_serializer',
     'waterfrontapi',
 ]
 

@@ -5,3 +5,4 @@ from . import models
 admin.site.register(models.UserProfile)
 admin.site.register(models.ProfileFeedItem)
 admin.site.register(models.ContactForm)
+admin.site.register(models.Post)

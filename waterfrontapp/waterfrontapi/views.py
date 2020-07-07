@@ -8,11 +8,12 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework import filters
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, IsAuthenticatedOrReadOnly
 
 from . import serializers
 from . import models
 from . import permissions as customPermissions
+from . import filters as customFilters
 
 # Create your views here.
 
@@ -152,3 +153,12 @@ class ContactFormViewSet(viewsets.ModelViewSet):
         except KeyError: 
             # action is not set return default permission_classes
             return [permission() for permission in self.permission_classes]
+
+
+class PostViewSet(viewsets.ReadOnlyModelViewSet):
+    """Handles viewing posts."""
+
+    serializer_class = serializers.PostSerializer
+    queryset = models.Post.objects.all()
+    filter_backends = [customFilters.DynamicSearchFilter]
+        

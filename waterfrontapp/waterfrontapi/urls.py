@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register('profile', views.UserProfileViewSet)
 router.register('login', views.LoginViewSet, basename='login')
 router.register('leads', views.ContactFormViewSet)
+router.register('posts', views.PostViewSet)
 # router.register('hello-viewset', views.HelloViewSet, basename='hello-viewset')
 # router.register('feed', views.UserProfileFeedViewSet)
 

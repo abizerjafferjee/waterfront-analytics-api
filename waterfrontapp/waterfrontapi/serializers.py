@@ -1,6 +1,7 @@
 from django.core.mail import EmailMessage
 from django.conf import settings
 from rest_framework import serializers
+from taggit_serializer.serializers import (TagListSerializerField, TaggitSerializer)
 from . import models
 
 class HelloSerializer(serializers.Serializer):
@@ -63,3 +64,12 @@ class ContactFormSerializer(serializers.ModelSerializer):
         email.send()
 
         return instance
+
+class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
+    """A serializer for blog posts."""
+
+    tags = TagListSerializerField()
+
+    class Meta:
+        model = models.Post
+        fields = ('id', 'title', 'slug', 'description', 'url', 'tags', 'created_at', 'updated_at')
